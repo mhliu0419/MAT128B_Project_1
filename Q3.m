@@ -56,7 +56,7 @@ toc  %stop timer
 close(h_wait);
 min_z = min(zval(:));
 max_z = max(zval(:));
-cmap = flag(max_z);
+cmap = hot(max_z);
 colormap(cmap);
 imagesc(zval);
 imwrite(zval,cmap,'julia.png','png');
