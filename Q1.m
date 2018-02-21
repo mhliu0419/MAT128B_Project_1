@@ -17,12 +17,8 @@ for j=1:200, % Try initial values with imaginary parts between
     iflag2 = 0;               %   when a root is within 1.e-6 of a fixed point;
     kount = 0;                % kount is the total number of iterations.
 
-    h = waitbar(0,'Please wait...');
-            for i=1:1000
-            % your code here %
-            waitbar(i/1000,h)
-        end
-    while kount < 100 & abs(zk) > 2 & iflag1 < 5 & iflag2 < 5,
+
+    while kount < 100 & abs(zk) < 2 & iflag1 < 5 & iflag2 < 5,
       kount = kount+1;
       zk = phi(zk);           % This is the fixed point iteration.
       err1 = abs(zk-fixpt1);  % Test for convergence to fixpt1.
