@@ -20,7 +20,7 @@ x = linspace(X_MIN, X_MAX, WIDTH);
 y = linspace(Y_MIN, Y_MAX, HEIGHT);
 
 % Allocate space for output
-zval = zeros(HEIGHT, WIDTH);
+z_value = zeros(HEIGHT, WIDTH);
 z = 0+0i;
 c = 0.36;
 h_wait = waitbar(0,'Please  wait...');
@@ -30,8 +30,6 @@ for m = 1:WIDTH
     for n = 1:HEIGHT
          k = 0;
          z = x(m)+y(n)*i;
-         %wx = x(m) - c;
-         %wy = y(n) - c;
          if x(m) > 0
              theta = atan(y(n)/x(m));
          elseif x(m) < 0
@@ -47,17 +45,16 @@ for m = 1:WIDTH
             z = z^2 + c;
             k = k+1;
          end
-         zval(n,m) = k;   
+         z_value(n,m) = k;   
     end
     waitbar(m/WIDTH, h_wait);
 end 
 toc  %stop timer
 
 close(h_wait);
-min_z = min(zval(:));
-max_z = max(zval(:));
-cmap = hot(max_z);
+min_z = min(z_value(:));
+max_z = max(z_value(:));
+cmap = parula(max_z);
 colormap(cmap);
-imagesc(zval);
-imwrite(zval,cmap,'julia.png','png');
+imagesc(z_value);
 end
