@@ -24,6 +24,9 @@ z_value = zeros(HEIGHT, WIDTH);
 z = 0+0i;
 c = 0.36;
 h_wait = waitbar(0,'Please  wait...');
+k=0;
+Z_set = zeros(1,200);  %To produce a Julia set for Question 4
+                       %It stores all values of z
 
 tic %start timer
 for m = 1:WIDTH
@@ -43,6 +46,9 @@ for m = 1:WIDTH
          
          while (k < MAX_ITERATION) && (abs(z) < 2)
             z = z^2 + c;
+            
+            Z_set(k+1) = z; %For each loop, store each z value
+            
             k = k+1;
          end
          z_value(n,m) = k;   
@@ -51,6 +57,8 @@ for m = 1:WIDTH
 end 
 toc  %stop timer
 
+%Z_set                  %We do not need this command here. When we need the set, we
+                        %print and use it
 close(h_wait);
 min_z = min(z_value(:));
 max_z = max(z_value(:));
