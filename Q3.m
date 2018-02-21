@@ -44,7 +44,7 @@ for m = 1:WIDTH
          r = sqrt(x(m) * x(m) + y(n) * y(n));
         
          
-         while (k < MAX_ITERATION) && (abs(z) < 2)
+         while (k < MAX_ITERATION) && (abs(z) < 100)
             z = z^2 + c;
             
             Z_set(k+1) = z; %For each loop, store each z value
