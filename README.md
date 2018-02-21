@@ -2,6 +2,8 @@
 
 Team member: 
 
-Minghao Liu \n
-Shiyu Tu \n
-Mengzhu Gao \n
+Minghao Liu
+
+Shiyu Tu 
+
+Mengzhu Gao 
